@@ -1,0 +1,40 @@
+server:
+  port: 8001
+
+
+mybatis:
+  config-location:  classpath:mybatis/mybatis.cfg.xml   #mybatis配置文件所在路径
+  type-aliases-package: com.aistone.springcloud.entites  #所有Entity别名类
+  mapper-locations:
+  - classpath:mybatis/mapper/**/*.xml     #mapper映射文件
+  
+spring:
+  application:
+    name: microservicecloud-dept
+  datasource:
+    type: com.alibaba.druid.pool.DruidDataSource 
+    driver-class-name: org.gjt.mm.mysql.Driver   #mysql驱动包
+    url: jdbc:mysql://localhost:3306/cloudDB01    #数据库名称
+    username: root
+    password: admin@123
+    dbcp2:
+      min-idle: 5                                 #数据库连接池最小维持链接数
+      initial-size: 5                             #初始化连接数
+      max-total: 5                                #最大连接数
+      max-wait-millis: 200                        #等待链接获取的最大超时时间
+#客户端注册进eureka服务列表
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:7001/eureka
+  instance:
+    instance-id: microservicecloud-dept8001   #为微服务设置别名
+    prefer-ip-address: true         #设置路径显示ip地址
+    
+    
+#添加关于此服务的Info说明
+info:
+  app.name: aistone-springcloud
+  company.name: www.aistone.com
+  bulid.artifactId: $project.artifactId$
+  bulid.version: $project.version$
