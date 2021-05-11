@@ -1,0 +1,4 @@
+com\aistone\springcloud\service\DeptClientServiceFallBackFactory.class
+com\aistone\springcloud\entites\Dept.class
+com\aistone\springcloud\service\DeptClientServiceFallBackFactory$1.class
+com\aistone\springcloud\service\DeptClientService.class
